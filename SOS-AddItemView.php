@@ -6,10 +6,10 @@
      $ProdductNum = 1;
 
     // Get all product
-    $query = 'SELECT * FROM productinfo
-              ORDER BY ProductNum';
+    $query = "SELECT * FROM productinfo";
     $productinfo = $db->query($query);
- ?>
+	$products = $productinfo->fetchAll();
+?>
 
 <!DOCTYPE html>
 <html>
@@ -36,32 +36,38 @@
 					<li><a href="index.html">Home</a></li>
 					<li><a href="SOS_AboutContact.html">About/Contact info</a></li>
 					<li><a href="SOS-Inventory.php">Inventory</a></li>
-					<li><a href="SOS-OrderForm.php">Order</a></li>
+					<li><a href="SOS-Order.php">Order</a></li>
 				</ul>
 			</nav>
 		</header>
 		<article>
 			<h1>Order Form</h1>
 			
-			<!-- display a form for ordering the procucts -->
-			<form action="display_order.php" method="post">
+			<!-- displays a form for ordering the procucts -->
+			<form action="SOS-Order.php" method="post">
+				<input type="hidden" name="action" value="add"/>
+			
 				<label>Select Product</label>
 				<div id="data">
 				
 				<select name="productdropdown">
-                <?php foreach ($productinfo as $productinfo) : ?>
+                <?php foreach ($products as $key => $product) : 
+					$Price = number_format($product['Price'], 2);
+                    $name = $product['ProductName'];
+                    $item = $name . ' ($' . $Price . ')';
+				?>
 
-				<option value="<?php echo $productinfo['ProductName']; ?>">
-					<?php echo $productinfo['ProductName']; ?>
-					</option> 	
-				<?php endforeach; ?>					
+				<option value="<?php echo $key; ?>">
+                    <?php echo $item; ?>
+                </option> 	
+				<?php endforeach; ?>
 
 				</select>
 				</div>
 				
-				<br /><br />
+				<br />
 				
-				<label>Select CPU kit</label><br />		
+				<!--<label>Select CPU kit</label><br />		
 				<div id="CPU count">
 					<input type="radio" id="1cpu" name="CPUs" value="1 CPU" checked="checked" />
 					<label for="1cpu">1 CPU</label><br />
@@ -84,12 +90,24 @@
 				<div id="sticker">
 					<input type="checkbox" name="sticker" checked="checked"/>
 					<label for="sticker">Include Cpt Serverbeard sticker</label><br />
-				</div><br><br>
+				</div><br /><br /> -->
+				
+				<label>Quantity:</label>
+				<select name="itemqty">
+                <?php for($i = 1; $i <= 10; $i++) : ?>
+                    <option value="<?php echo $i; ?>">
+                        <?php echo $i; ?>
+                    </option>
+                <?php endfor; ?>
+                </select><br /><br><br>
+				
+				
 				<div id="buttons">
 					<label>&nbsp;</label>
-					<input type="submit" value="Process Order" /><br />
-				</div>	
-			</form>	
+					<input type="submit" value="Add Item" /><br />
+				</div>
+			</form>
+			<p><a href="SOS-Order.php?action=show_cart">View Cart</a></p>			
 		</article>
 		<footer>
 			Stacks O' Servers Llc &#8226; 
