@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2020 at 03:09 AM
+-- Generation Time: May 04, 2020 at 05:15 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.1.27
 
@@ -73,9 +73,7 @@ INSERT INTO `productinfo` (`ProductName`, `ProductNum`, `QuantityAvail`, `Price`
 ('Dell R720', 'SE000720', 651, '299.99', 'server'),
 ('Dell R730', 'SE000730', 463, '939.99', 'server'),
 ('HP Proliant DL360p G8', 'SE00360P', 345, '139.99', 'server'),
-('HP Proliant SE326M1 DL180', 'SE0326M1', 386, '114.99', 'server'),
-('Cisco WS-C2960S-48TS-L', 'SW002960', 560, '48.99', 'switch'),
-('Dell S60-44T-AC-R', 'SW006044', 253, '40.99', 'switch');
+('HP Proliant SE326M1 DL180', 'SE0326M1', 386, '114.99', 'server');
 
 --
 -- Indexes for dumped tables
