@@ -140,6 +140,14 @@ q {quotes: "\201C" "\201D" "\2018" "\2019";}
 q:before {content:open-quote;}
 q:after {content:close-quote;}
 article p, article address {font-family: "Times New Roman", Times, serif;}
+
+div#order
+{
+	text-align: center;
+	font-weight: bold;
+	font-size: 0.9em;
+}
+
 /* =============================================
 	Tablet layout styles used by devices
 	481px to 768px and cascaded to larger 
@@ -272,9 +280,9 @@ body {
 	clear: none;
 	float: none;
 	background-color: white /* grey */;
-	-moz-box-shadow: rgba(31, 61, 31, 0.9) 20px 0px 25px,  rgba(31, 61, 31, 0.9) -20px 0px 25px;
-	-webkit-box-shadow: rgba(31, 61, 31, 0.9) 20px 0px 25px,  rgba(31, 61, 31, 0.9) -20px 0px 25px;
-	box-shadow: rgba(31, 61, 31, 0.9) 20px 0px 25px,  rgba(31, 61, 31, 0.9) -20px 0px 25px;
+	-moz-box-shadow: rgba(31, 31, 31, 0.9) 20px 0px 25px,  rgba(31, 31, 31, 0.9) -20px 0px 25px;
+	-webkit-box-shadow: rgba(31, 31, 31, 0.9) 20px 0px 25px,  rgba(31, 61, 31, 0.9) -20px 0px 25px;
+	box-shadow: rgba(31, 31, 31, 0.9) 20px 0px 25px,  rgba(31, 31, 31, 0.9) -20px 0px 25px;
 }
 
 
