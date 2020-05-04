@@ -18,12 +18,13 @@ require_once('database.php');
 
 // Set product ID
 
- $ProdductNum = 1;
+ $ProductNum = 1;
 
     // Get all product
     $query = 'SELECT * FROM productinfo
               ORDER BY ProductNum';
     $productinfo = $db->query($query);
+	$products = $productinfo->fetchAll();
 
 
 // Include cart functions
@@ -41,8 +42,8 @@ if (isset($_POST['action'])) {
 // Add or update cart as needed
 switch($action) {
     case 'add':
-        add_item($_POST['productkey'], $_POST['itemqty']);
-        include('cart_view.php');
+        add_item($_POST['productdropdown'], $_POST['itemqty']);
+        include('SOS-CartView.php');
         break;
     case 'update':
         $new_qty_list = $_POST['newqty'];
@@ -51,17 +52,17 @@ switch($action) {
                 update_item($key, $qty);
             }
         }
-        include('cart_view.php');
+        include('SOS-CartView.php');
         break;
     case 'show_cart':
-        include('cart_view.php');
+        include('SOS-CartView.php');
         break;
     case 'show_add_item':
-        include('add_item_view.php');
+        include('SOS-AddItemView.php');
         break;
     case 'empty_cart':
         unset($_SESSION['cart']);
-        include('cart_view.php');
+        include('SOS-AddItemView.php');
         break;
 }
 ?>

@@ -44,7 +44,9 @@
 			<h1>Order Form</h1>
 			
 			<!-- displays a form for ordering the procucts -->
-			<form action="display_order.php" method="post">
+			<form action="SOS-Order.php" method="post">
+				<input type="hidden" name="action" value="add"/>
+			
 				<label>Select Product</label>
 				<div id="data">
 				
@@ -54,7 +56,7 @@
 				<option value="<?php echo $productinfo['ProductName']; ?>">
 					<?php echo $productinfo['ProductName']; ?>
 					</option> 	
-				<?php endforeach; ?>					
+				<?php endforeach; ?>
 
 				</select>
 				</div>
@@ -84,12 +86,24 @@
 				<div id="sticker">
 					<input type="checkbox" name="sticker" checked="checked"/>
 					<label for="sticker">Include Cpt Serverbeard sticker</label><br />
-				</div><br><br>
+				</div><br /><br />
+				
+				<label>Quantity:</label>
+				<select name="itemqty">
+                <?php for($i = 1; $i <= 10; $i++) : ?>
+                    <option value="<?php echo $i; ?>">
+                        <?php echo $i; ?>
+                    </option>
+                <?php endfor; ?>
+                </select><br /><br><br>
+				
+				
 				<div id="buttons">
 					<label>&nbsp;</label>
-					<input type="submit" value="Process Order" /><br />
-				</div>	
-			</form>	
+					<input type="submit" value="Add Item" /><br />
+				</div>
+			</form>
+			<p><a href="SOS-Order.php?action=show_cart">View Cart</a></p>			
 		</article>
 		<footer>
 			Stacks O' Servers Llc &#8226; 
