@@ -44,7 +44,7 @@
                     </tr>
         
                 <?php foreach( $_SESSION['cart'] as $key => $item ) :
-                    $price  = number_format($item['price'],  2);
+                    $Price  = number_format($item['Price'],  2);
                     $total = number_format($item['total'], 2);
                 ?>
                     <tr>
@@ -52,7 +52,7 @@
                             <?php echo $item['ProductName']; ?>
                         </td>
                         <td class="right">
-                            $<?php echo $price; ?>
+                            $<?php echo $Price; ?>
                         </td>
                         <td class="right">
                             <input type="text" class="cart_qty"

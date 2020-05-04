@@ -12,11 +12,11 @@ function add_item($key, $quantity) {
     }
 
     // Add item
-    $price = $products[$key]['price'];
-    $total = $price * $quantity;
+    $Price = $products[$key]['Price'];
+    $total = $Price * $quantity;
     $item = array(
-        'prod_Name' => $products[$key]['prod_Name'],
-        'price' => $price,
+        'ProductName' => $products[$key]['ProductName'],
+        'Price' => $Price,
         'qty'  => $quantity,
         'total' => $total
     );
@@ -32,7 +32,7 @@ function update_item($key, $quantity) {
             unset($_SESSION['cart'][$key]);
         } else {
             $_SESSION['cart'][$key]['qty'] = $quantity;
-            $total = $_SESSION['cart'][$key]['price'] *
+            $total = $_SESSION['cart'][$key]['Price'] *
                      $_SESSION['cart'][$key]['qty'];
             $_SESSION['cart'][$key]['total'] = $total;
         }

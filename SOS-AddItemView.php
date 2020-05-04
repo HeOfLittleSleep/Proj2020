@@ -6,10 +6,10 @@
      $ProdductNum = 1;
 
     // Get all product
-    $query = 'SELECT * FROM productinfo
-              ORDER BY ProductNum';
+    $query = "SELECT * FROM productinfo";
     $productinfo = $db->query($query);
- ?>
+	$products = $productinfo->fetchAll();
+?>
 
 <!DOCTYPE html>
 <html>
@@ -36,7 +36,7 @@
 					<li><a href="index.html">Home</a></li>
 					<li><a href="SOS_AboutContact.html">About/Contact info</a></li>
 					<li><a href="SOS-Inventory.php">Inventory</a></li>
-					<li><a href="SOS-OrderForm.php">Order</a></li>
+					<li><a href="SOS-Order.php">Order</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -51,11 +51,15 @@
 				<div id="data">
 				
 				<select name="productdropdown">
-                <?php foreach ($productinfo as $productinfo) : ?>
+                <?php foreach ($products as $key => $product) : 
+					$Price = number_format($product['Price'], 2);
+                    $name = $product['ProductName'];
+                    $item = $name . ' ($' . $Price . ')';
+				?>
 
-				<option value="<?php echo $productinfo['ProductName']; ?>">
-					<?php echo $productinfo['ProductName']; ?>
-					</option> 	
+				<option value="<?php echo $key; ?>">
+                    <?php echo $item; ?>
+                </option> 	
 				<?php endforeach; ?>
 
 				</select>

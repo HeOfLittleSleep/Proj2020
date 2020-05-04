@@ -8,23 +8,22 @@ session_start();
 // Create a cart array if needed
 //if (empty($_SESSION['cart'])) $_SESSION['cart'] = array();
 
-// Create a table of products
-//$products = array();
-//$products['MMS-1754'] = array('name' => 'Flute', 'cost' => '149.50');
-//$products['MMS-6289'] = array('name' => 'Trumpet', 'cost' => '199.50');
-//$products['MMS-3408'] = array('name' => 'Clarinet', 'cost' => '299.50');
+// Create a table of productinfo
+//$productinfo = array();
+//$productinfo['MMS-1754'] = array('name' => 'Flute', 'cost' => '149.50');
+//$productinfo['MMS-6289'] = array('name' => 'Trumpet', 'cost' => '199.50');
+//$productinfo['MMS-3408'] = array('name' => 'Clarinet', 'cost' => '299.50');
 
 require_once('database.php');
 
 // Set product ID
 
- $ProductNum = 1;
+ $ProdductNum = 1;
 
-    // Get all product
-    $query = 'SELECT * FROM productinfo
-              ORDER BY ProductNum';
-    $productinfo = $db->query($query);
-	$products = $productinfo->fetchAll();
+// Get all product
+$query = "SELECT * FROM productinfo";
+$productinfo = $db->query($query);
+$products = $productinfo->fetchAll();
 
 
 // Include cart functions
