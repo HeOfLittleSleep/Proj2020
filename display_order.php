@@ -40,6 +40,7 @@
 			</nav>
 		</header>
 
+		<br />
 		<section>
 		<div id="order">
 			<?php 
@@ -54,18 +55,17 @@
 				{
 					$message = $message . " and ".$RAM." of RAM."; 
 				}
+				
+				echo $message;
 			?>
 			
 		</div>
 		</section>
-		
-		     <footer>
-         <address>
-            The Little Coffee Hut &nbsp;&nbsp;&nbsp;
-            601 Elkhart Avenue &nbsp;&nbsp;&nbsp;
-            Peosta, IA 52068 &nbsp;&nbsp;&nbsp;
-            1 (800) 556-5110 &nbsp;&nbsp;&nbsp;
-         </address>
-      </footer>
+		<footer>
+			Stacks O' Servers Llc &#8226; 
+			578 Rocket Drive, Minneapolis MN &nbsp; 55402 &#8226;
+			612-873-0050 &#8226;
+			pottert140065@nicc.edu
+		</footer>
    </body>
 </html>	
