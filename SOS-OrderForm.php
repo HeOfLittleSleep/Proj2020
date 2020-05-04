@@ -41,26 +41,9 @@
 			</nav>
 		</header>
 		<article>
-			<h1>Inventory</h1>
+			<h1>Order Form</h1>
 			
 			<!-- display a table of products -->
-            <table align="center">
-                <tr>
-                    <th>Product Name</th>
-                    <th>Quantity On Hand</th>
-					<th>Price</th>
-					<th>Device Type</th>
-                    <th>&nbsp;</th>
-                </tr>
-                <?php foreach ($productinfo as $productinfo) : ?>
-                <tr>
-                    <td><?php echo $productinfo['ProductName']; ?></td>
-                    <td><?php echo $productinfo['QuantityAvail']; ?></td>
-                    <td><?php echo "$".number_format($productinfo['Price'], 2); ?></td>  
-					<td><?php echo $productinfo['ProductType']; ?></td>
-                </tr>
-                <?php endforeach; ?>
-            </table>
 		</article>
 		<footer>
 			Stacks O' Servers Llc &#8226; 578 Rocket Drive, Minneapolis MN &nbsp; 55402 &#8226; 612-873-0050 &#8226; pottert140065@nicc.edu
