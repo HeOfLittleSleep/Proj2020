@@ -61,11 +61,11 @@
 				
 				<br /><br />
 				
-				<label>Select CPU option</label><br />		
+				<label>Select CPU kit</label><br />		
 				<div id="CPU count">
-					<input type="radio" id="1cpu" name="CPUs" value="1cpu" checked="checked" />
+					<input type="radio" id="1cpu" name="CPUs" value="1 CPU" checked="checked" />
 					<label for="1cpu">1 CPU</label><br />
-					<input type="radio" id="2cpu" name="CPUs" value="2cpu" />
+					<input type="radio" id="2cpu" name="CPUs" value="2 CPUs" />
 					<label for="2cpu">2 CPUs</label>
 				</div><br />
 				

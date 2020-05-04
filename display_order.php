@@ -1,27 +1,14 @@
-/* <?php
+<?php
 
 	// get the data from the form list box
-    $prod_Name = $_POST['productkey'];
+    $prod_Name = $_POST['productdropdown'];
 
 	// get the data from the form Checked boxes
-    $box = isset($_POST['box']);
-    $wrap = isset($_POST['wrap']);
-    $tag = isset($_POST['tag']);
+    $cpus = $_POST['CPUs'];
+    $ram = $_POST['RAM'];
+    $sticker = isset($_POST['sticker']);
 
-?> */
-
-<?php
-    require_once('database.php');
-
-    // Set product ID
-
-     $ProdductNum = 1;
-
-    // Get all product
-    $query = 'SELECT * FROM productinfo
-              ORDER BY ProductNum';
-    $productinfo = $db->query($query);
- ?>
+?>
 
 <!DOCTYPE html>
 <html>
@@ -56,30 +43,17 @@
 		<section>
 		<div id="order">
 			<?php 
-				echo "Ordered ".$prod_Name; 
+				echo "Ordered ".$prod_Name." with ".$cpus; 
 				$message = "";
-				if(!empty($box)) {
-					$message = " with gift box ";
-				}
-				if(!empty($wrap)) {
-					if(!empty($message)) {
-						$message = $message . " and gift wrap"; 
-				}	else { 
-						$message = $message . " with gift wrap";
-					}
-				}
-				if(!empty($tag)) {
-					if(!empty($message)) {
-						$message = $message . " and gift tag"; 
-				}	else { 
-						$message = $message . " with gift tag";
-					}
-				}
-				if(!empty($message)) {
-						$message = $message . "."; 					
-						echo $message;
-				}
 				
+				if(!empty($sticker)) 
+				{
+					$message = $message . ", ".$ram." of RAM, and a Cpt Serverbeard sticker."; 
+				}
+				else
+				{
+					$message = $message . " and ".$RAM." of RAM."; 
+				}
 			?>
 			
 		</div>
