@@ -43,10 +43,44 @@
 		<article>
 			<h1>Order Form</h1>
 			
-			<!-- display a table of products -->
+			<!-- display a form for ordering the procucts -->
+			<form action="display_order.php" method="post">
+				<label>Please select a tea</label>
+				<div id="data">
+				
+				<select name="productkey">
+                <?php foreach ($products as $product) : ?>
+
+				<option value="<?php echo $product['prod_Name']; ?>">
+					<?php echo $product['prod_Name']; ?>
+					</option> 	
+				<?php endforeach; ?>					
+
+					</select>
+				</div>
+				
+				<br><br>
+				
+				<label>Please select your gift options below</label><br>
+				<div id="gift">
+					<input type="checkbox" name="box" checked="checked"/> 
+						Boxed<br />
+					<input type="checkbox" name="wrap"/> Gift Wrap<br />
+					<input type="checkbox" name="tag"/> Gift Tag
+				</div>
+				
+				<br><br>
+				<div id="buttons">
+					<label>&nbsp;</label>
+					<input type="submit" value="Process Order" /><br />
+				</div>	
+			</form>	
 		</article>
 		<footer>
-			Stacks O' Servers Llc &#8226; 578 Rocket Drive, Minneapolis MN &nbsp; 55402 &#8226; 612-873-0050 &#8226; pottert140065@nicc.edu
+			Stacks O' Servers Llc &#8226; 
+			578 Rocket Drive, Minneapolis MN &nbsp; 55402 &#8226;
+			612-873-0050 &#8226;
+			pottert140065@nicc.edu
 		</footer>
 	</body>
 
