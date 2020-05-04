@@ -45,31 +45,46 @@
 			
 			<!-- display a form for ordering the procucts -->
 			<form action="display_order.php" method="post">
-				<label>Please select a tea</label>
+				<label>Select Product</label>
 				<div id="data">
 				
-				<select name="productkey">
-                <?php foreach ($products as $product) : ?>
+				<select name="productdropdown">
+                <?php foreach ($productinfo as $productinfo) : ?>
 
-				<option value="<?php echo $product['prod_Name']; ?>">
-					<?php echo $product['prod_Name']; ?>
+				<option value="<?php echo $productinfo['ProductName']; ?>">
+					<?php echo $productinfo['ProductName']; ?>
 					</option> 	
 				<?php endforeach; ?>					
 
-					</select>
+				</select>
 				</div>
 				
-				<br><br>
+				<br /><br />
 				
-				<label>Please select your gift options below</label><br>
-				<div id="gift">
-					<input type="checkbox" name="box" checked="checked"/> 
-						Boxed<br />
-					<input type="checkbox" name="wrap"/> Gift Wrap<br />
-					<input type="checkbox" name="tag"/> Gift Tag
-				</div>
+				<label>Select CPU option</label><br />		
+				<div id="CPU count">
+					<input type="radio" id="1cpu" name="CPUs" value="1cpu" checked="checked" />
+					<label for="1cpu">1 CPU</label><br />
+					<input type="radio" id="2cpu" name="CPUs" value="2cpu" />
+					<label for="2cpu">2 CPUs</label>
+				</div><br />
 				
-				<br><br>
+				<label>Select amount of RAM</label><br />
+				<div id="RAM Kit">
+					<input type="radio" id="8gb" name="RAM" value="8gb" checked="checked" />
+					<label for="8gb">8 Gigabytes</label><br />
+					<input type="radio" id="16gb" name="RAM" value="16gb" />
+					<label for="16gb">16 Gigabytes</label><br />
+					<input type="radio" id="32gb" name="RAM" value="32gb" />
+					<label for="32gb">32 Gigabytes</label><br />
+					<input type="radio" id="64gb" name="RAM" value="64gb" />
+					<label for="64gb">64 Gigabytes</label>
+				</div><br />
+				
+				<div id="sticker">
+					<input type="checkbox" name="sticker" checked="checked"/>
+					<label for="sticker">Include Cpt Serverbeard sticker</label><br />
+				</div><br><br>
 				<div id="buttons">
 					<label>&nbsp;</label>
 					<input type="submit" value="Process Order" /><br />
