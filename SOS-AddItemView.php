@@ -65,9 +65,9 @@
 				</select>
 				</div>
 				
-				<br /><br />
+				<br />
 				
-				<label>Select CPU kit</label><br />		
+				<!--<label>Select CPU kit</label><br />		
 				<div id="CPU count">
 					<input type="radio" id="1cpu" name="CPUs" value="1 CPU" checked="checked" />
 					<label for="1cpu">1 CPU</label><br />
@@ -90,7 +90,7 @@
 				<div id="sticker">
 					<input type="checkbox" name="sticker" checked="checked"/>
 					<label for="sticker">Include Cpt Serverbeard sticker</label><br />
-				</div><br /><br />
+				</div><br /><br /> -->
 				
 				<label>Quantity:</label>
 				<select name="itemqty">
