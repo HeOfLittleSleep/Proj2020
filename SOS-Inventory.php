@@ -36,7 +36,7 @@
 					<li><a href="index.html">Home</a></li>
 					<li><a href="SOS_AboutContact.html">About/Contact info</a></li>
 					<li><a href="SOS-Inventory.php">Inventory</a></li>
-					<li><a href="SOS-OrderForm.php">Order</a></li>
+					<li><a href="SOS-Order.php">Order</a></li>
 				</ul>
 			</nav>
 		</header>

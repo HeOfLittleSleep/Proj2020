@@ -43,7 +43,7 @@
 		<article>
 			<h1>Order Form</h1>
 			
-			<!-- display a form for ordering the procucts -->
+			<!-- displays a form for ordering the procucts -->
 			<form action="display_order.php" method="post">
 				<label>Select Product</label>
 				<div id="data">
