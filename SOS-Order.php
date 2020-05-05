@@ -63,5 +63,8 @@ switch($action) {
         unset($_SESSION['cart']);
         include('SOS-AddItemView.php');
         break;
+	case 'submit_order':
+		include('SOS-DatabaseUpdate.php');
+		break;
 }
 ?>

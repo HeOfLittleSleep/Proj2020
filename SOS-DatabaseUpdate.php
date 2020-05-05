@@ -1,25 +1,17 @@
 <?php
-require_once('database.php');
+
+/* require_once('database.php');
 
 // get the data that will be sent to the database
 $custname = $_POST['custname'];
 $custaddress = $_POST['custaddress'];
 $custaddress2 = $_POST['custaddress2'];
 
-$ordernumber = uniqid();
+$ordernumber = uniqid(); */
 
 // gets required data from session and updates orderline
-$item = array(
-		'ProductName' => $products[$key]['ProductName'],
-		'Price' => $Price,
-		'qty'  => $quantity,
-		'total' => $total,
-		'ProductNum' => $productnum
-    );
-
 
 ?>
-// update database entries
 
 
 
@@ -54,10 +46,7 @@ $item = array(
 		</header>
 		<article>
 			<p>your order has been processed. Thank you for shopping with us!<p/>
-			<?php foreach( $_SESSION['cart'] as $key => $item ) :
-				echo $productnum;
-			?>
-			<?php endforeach; ?>
+			<?php echo $_SESSION['DBsubtotal']; ?>
 		</article>
 		<footer>
 			Stacks O' Servers Llc &#8226; 578 Rocket Drive, Minneapolis MN &nbsp; 55402 &#8226; 612-873-0050 &#8226; pottert140065@nicc.edu

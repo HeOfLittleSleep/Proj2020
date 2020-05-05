@@ -49,7 +49,7 @@ function get_subtotal() {
     }
     $subtotal = number_format($subtotal, 2);
     
-	<?php $_SESSION["totalprice"] = $subtotal; ?>
+	$_SESSION["DBsubtotal"] = $subtotal;
 	
 	return $subtotal;
 }

@@ -85,13 +85,15 @@
 			<br />
 			
 			<form action="SOS-DatabaseUpdate.php" method="post">
+				<input type="hidden" name="action" value="submit_order"/>
+				
 				<label>Your first name</label><br />
                 <input type="text" name="custname" id="custname" value="Your Name"><br /><br />
 				
 				<label>Address line 1</label><br />
-                <input type="text" name="custaddress" id="custaddress2" value="line 1"><br />
+                <input type="text" name="custaddress" id="custaddress2" value="Line 1"><br />
 				<label>Address line 2</label><br />
-                <input type="text" name="custaddress2" id="custaddress2" value="line 2"><br /><br />
+                <input type="text" name="custaddress2" id="custaddress2" value="Line 2"><br /><br />
 				
                 <input type="submit" value="Submit Order"/><br /><br />
 				

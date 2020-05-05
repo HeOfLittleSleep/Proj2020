@@ -67,31 +67,6 @@
 				
 				<br />
 				
-				<!--<label>Select CPU kit</label><br />		
-				<div id="CPU count">
-					<input type="radio" id="1cpu" name="CPUs" value="1 CPU" checked="checked" />
-					<label for="1cpu">1 CPU</label><br />
-					<input type="radio" id="2cpu" name="CPUs" value="2 CPUs" />
-					<label for="2cpu">2 CPUs</label>
-				</div><br />
-				
-				<label>Select amount of RAM</label><br />
-				<div id="RAM Kit">
-					<input type="radio" id="8gb" name="RAM" value="8gb" checked="checked" />
-					<label for="8gb">8 Gigabytes</label><br />
-					<input type="radio" id="16gb" name="RAM" value="16gb" />
-					<label for="16gb">16 Gigabytes</label><br />
-					<input type="radio" id="32gb" name="RAM" value="32gb" />
-					<label for="32gb">32 Gigabytes</label><br />
-					<input type="radio" id="64gb" name="RAM" value="64gb" />
-					<label for="64gb">64 Gigabytes</label>
-				</div><br />
-				
-				<div id="sticker">
-					<input type="checkbox" name="sticker" checked="checked"/>
-					<label for="sticker">Include Cpt Serverbeard sticker</label><br />
-				</div><br /><br /> -->
-				
 				<label>Quantity:</label>
 				<select name="itemqty">
                 <?php for($i = 1; $i <= 10; $i++) : ?>
