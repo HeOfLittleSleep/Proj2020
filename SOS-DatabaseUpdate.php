@@ -1,15 +1,27 @@
 <?php
-
-/* require_once('database.php');
+session_start();
+require_once('database.php');
 
 // get the data that will be sent to the database
 $custname = $_POST['custname'];
 $custaddress = $_POST['custaddress'];
 $custaddress2 = $_POST['custaddress2'];
 
-$ordernumber = uniqid(); */
+$ordernumber = uniqid();
 
 // gets required data from session and updates orderline
+/* foreach ($_SESSION['cart'] as $item) 
+{
+	
+	
+	$query = "INSERT INTO orderline
+                 (AmtOrdered, OrderNum, ProductNum)
+			VALUES(:AmtOrdered, ':OrderNum', ':ProductNum')";
+	$statement = $db->prepare($query);
+	$statement->bindValue(':AmtOrdered', $item['qty']);
+	$statement->bindValue(':OrderNum', $ordernumber);
+	$statement->bindValue(':ProductNum', $item['ProductNum']);
+} */
 
 ?>
 
@@ -46,7 +58,11 @@ $ordernumber = uniqid(); */
 		</header>
 		<article>
 			<p>your order has been processed. Thank you for shopping with us!<p/>
-			<?php echo $_SESSION['DBsubtotal']; ?>
+			<?php echo $_SESSION['DBsubtotal']; ?><br />
+			<?php echo $custname; ?>
+			<?php echo $ordernumber; ?>
+			<?php echo $item['qty']; ?>
+			
 		</article>
 		<footer>
 			Stacks O' Servers Llc &#8226; 578 Rocket Drive, Minneapolis MN &nbsp; 55402 &#8226; 612-873-0050 &#8226; pottert140065@nicc.edu
