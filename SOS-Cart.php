@@ -18,7 +18,9 @@ function add_item($key, $quantity) {
         'ProductName' => $products[$key]['ProductName'],
         'Price' => $Price,
         'qty'  => $quantity,
-        'total' => $total
+        'total' => $total,
+		'ProductNum' => $productnum
+		
     );
     $_SESSION['cart'][$key] = $item;
 }
@@ -46,6 +48,9 @@ function get_subtotal() {
         $subtotal += $item['total'];
     }
     $subtotal = number_format($subtotal, 2);
-    return $subtotal;
+    
+	<?php $_SESSION["totalprice"] = $subtotal; ?>
+	
+	return $subtotal;
 }
 ?>

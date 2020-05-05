@@ -1,48 +1,67 @@
 <?php
-//this will be run when the database needs to be updated
+require_once('database.php');
 
-// Insert a new record into table
-$category_id = 1;
-$code = 'strat';
-$name = 'Fender Stratocaster';
-$price = 699.99;
+// get the data that will be sent to the database
+$custname = $_POST['custname'];
+$custaddress = $_POST['custaddress'];
+$custaddress2 = $_POST['custaddress2'];
 
-$query = "INSERT INTO products
-                 (categoryID, productCode, productName, listPrice)
-			VALUES(:category_id, ':code', ':name', :price)";
-$statement = $db->prepare($query);
-$statement->bindValue(':category_id', $category_id);
-$statement->bindValue(':code', $code);
-$statement->bindValue(':name', $name);
-$statement->bindValue(':price', $price);
-$statement->execute();
-$statement->closeCursor();
+$ordernumber = uniqid();
 
+// gets required data from session and updates orderline
+$item = array(
+		'ProductName' => $products[$key]['ProductName'],
+		'Price' => $Price,
+		'qty'  => $quantity,
+		'total' => $total,
+		'ProductNum' => $productnum
+    );
 
-// Updating an existing record from the table
-$category_id = 4;
-$price = 599.99;
-$query = "UPDATE products
-                 SET listPrice = $price
-				 WHERE categoryID = $category_id";
-				 
-$statement = $db->prepare($query);
-$statement->bindValue(':category_id', $category_id);
-$statement->bindValue(':price', $price);
-$statement->execute();
-$statement->closeCursor();
-
-
-
-
-// Deleting a record from the table
-$category_id = 4;
-$query = "DELETE FROM products
-				 WHERE categoryID = $category_id";
-				 
-$statement = $db->prepare($query);
-$statement->bindValue(':category_id', $category_id);
-$statement->execute();
-$statement->closeCursor();
 
 ?>
+// update database entries
+
+
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<!--
+		General Information about Stacks O' Servers Llc
+		Author: Timothy Potter
+		Date: No thanks, I'm not into computers that way.
+		-->
+		<meta charset="utf-8" />
+		<meta name="keywords"
+		 content="used, servers, free, mp3, you, won't, believe, what, happens, next, optional ram" />
+		<title>Stacks o' Servers</title>
+		<link href="Pencils_base.css" rel="stylesheet"/>
+		<link href="Pencils_layout2.css" rel="stylesheet"/>
+	</head>
+
+	<body>
+		<header>
+			<a href="index.html" style="text-decoration: none;"><h1>STACKS O' SERVERS</h1></a>
+			<nav>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="SOS_AboutContact.html">About/Contact info</a></li>
+					<li><a href="SOS-Inventory.php">Inventory</a></li>
+					<li><a href="SOS-Order.php">Order</a></li>
+				</ul>
+			</nav>
+		</header>
+		<article>
+			<p>your order has been processed. Thank you for shopping with us!<p/>
+			<?php foreach( $_SESSION['cart'] as $key => $item ) :
+				echo $productnum;
+			?>
+			<?php endforeach; ?>
+		</article>
+		<footer>
+			Stacks O' Servers Llc &#8226; 578 Rocket Drive, Minneapolis MN &nbsp; 55402 &#8226; 612-873-0050 &#8226; pottert140065@nicc.edu
+		</footer>
+	</body>
+
+</html>

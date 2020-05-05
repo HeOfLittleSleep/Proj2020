@@ -81,6 +81,23 @@
             <?php endif; ?>
             <p><a href="SOS-Order.php?action=show_add_item">Add Item</a></p>
             <p><a href="SOS-Order.php?action=empty_cart">Empty Cart</a></p>
+			
+			<br />
+			
+			<form action="SOS-DatabaseUpdate.php" method="post">
+				<label>Your first name</label><br />
+                <input type="text" name="custname" id="custname" value="Your Name"><br /><br />
+				
+				<label>Address line 1</label><br />
+                <input type="text" name="custaddress" id="custaddress2" value="line 1"><br />
+				<label>Address line 2</label><br />
+                <input type="text" name="custaddress2" id="custaddress2" value="line 2"><br /><br />
+				
+                <input type="submit" value="Submit Order"/><br /><br />
+				
+				
+
+            </form>
 
 		</div><!-- end page -->
 	</section>
