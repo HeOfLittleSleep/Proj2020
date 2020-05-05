@@ -19,7 +19,7 @@ function add_item($key, $quantity) {
         'Price' => $Price,
         'qty'  => $quantity,
         'total' => $total,
-		'ProductNum' => $productnum
+		'ProductNum' => $products[$key]['ProductNum']
 		
     );
     $_SESSION['cart'][$key] = $item;

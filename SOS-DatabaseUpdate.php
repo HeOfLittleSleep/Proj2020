@@ -10,18 +10,19 @@ $custaddress2 = $_POST['custaddress2'];
 $ordernumber = uniqid();
 
 // gets required data from session and updates orderline
-/* foreach ($_SESSION['cart'] as $item) 
+foreach ($_SESSION['cart'] as $item) 
 {
 	
-	
-	$query = "INSERT INTO orderline
+	$Price  = number_format($item['Price'],  2);
+	$total = number_format($item['total'], 2);
+	/* $query = "INSERT INTO orderline
                  (AmtOrdered, OrderNum, ProductNum)
 			VALUES(:AmtOrdered, ':OrderNum', ':ProductNum')";
 	$statement = $db->prepare($query);
 	$statement->bindValue(':AmtOrdered', $item['qty']);
 	$statement->bindValue(':OrderNum', $ordernumber);
-	$statement->bindValue(':ProductNum', $item['ProductNum']);
-} */
+	$statement->bindValue(':ProductNum', $item['ProductNum']); */
+}
 
 ?>
 
@@ -61,7 +62,17 @@ $ordernumber = uniqid();
 			<?php echo $_SESSION['DBsubtotal']; ?><br />
 			<?php echo $custname; ?>
 			<?php echo $ordernumber; ?>
-			<?php echo $item['qty']; ?>
+			<?php foreach ($_SESSION['cart'] as $item) 
+			{
+				echo $item['qty'];
+				echo "<br />";
+				echo $item['ProductNum'];
+				echo "<br />";
+			} 
+			if (empty($_SESSION['cart'])) : ?>
+                <p>F U C K</p>
+			<?php endif; ?>
+
 			
 		</article>
 		<footer>
