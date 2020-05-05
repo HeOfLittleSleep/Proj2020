@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2020 at 05:15 AM
+-- Generation Time: May 05, 2020 at 07:53 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.1.27
 
@@ -29,9 +29,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `orderinfo` (
-  `OrderNum` char(8) NOT NULL,
+  `OrderNum` char(13) NOT NULL,
   `TotalPrice` decimal(10,2) NOT NULL,
   `Address` char(30) NOT NULL,
+  `Address2` char(30) NOT NULL,
   `CustName` char(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -43,7 +44,7 @@ CREATE TABLE `orderinfo` (
 
 CREATE TABLE `orderline` (
   `ProductNum` char(8) NOT NULL,
-  `OrderNum` char(8) NOT NULL,
+  `OrderNum` char(13) NOT NULL,
   `AmtOrdered` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
