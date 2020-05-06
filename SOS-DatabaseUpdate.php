@@ -12,16 +12,61 @@ $ordernumber = uniqid();
 // gets required data from session and updates orderline
 foreach ($_SESSION['cart'] as $item) 
 {
+	// add quantity and product number to respective arrays
+	$quantityordered=array();
+	$productordered=array();
 	
-	$Price  = number_format($item['Price'],  2);
-	$total = number_format($item['total'], 2);
-	/* $query = "INSERT INTO orderline
+	$quantityordered[] = $item['qty'];
+	$productordered[]= $item['ProductNum'];
+	
+	// add record to the orderline table
+	$query = "INSERT INTO orderline
                  (AmtOrdered, OrderNum, ProductNum)
-			VALUES(:AmtOrdered, ':OrderNum', ':ProductNum')";
+			VALUES(:AmtOrdered, :OrderNum, :ProductNum)";
 	$statement = $db->prepare($query);
 	$statement->bindValue(':AmtOrdered', $item['qty']);
 	$statement->bindValue(':OrderNum', $ordernumber);
-	$statement->bindValue(':ProductNum', $item['ProductNum']); */
+	$statement->bindValue(':ProductNum', $item['ProductNum']);
+	$statement->execute();
+	$statement->closeCursor();
+}
+
+// add record of order to orderinfo table
+$query = "INSERT INTO orderinfo
+			 (Address, Address2, CustName, OrderNum, TotalPrice)
+		VALUES(:Address, :Address2, :CustName, :OrderNum, :TotalPrice)";
+$statement = $db->prepare($query);
+$statement->bindValue(':Address', $custaddress);
+$statement->bindValue(':Address2', $custaddress2);
+$statement->bindValue(':CustName', $custname);
+$statement->bindValue(':OrderNum', $ordernumber);
+$statement->bindValue(':TotalPrice', $_SESSION['DBsubtotal']);
+$statement->execute();
+$statement->closeCursor();
+
+// reduce QuantityAvail by AmtOrdered for each respective product
+$i = 0;
+foreach ($quantityordered as $amt) 
+{
+	$query = "SELECT QuantutyAvail FROM productinfo
+			WHERE ProductName = ".$productordered[$i];
+	$available = $db->query($query);
+	$availablea = $available->execute();
+	
+	echo $available;
+	$subtracted = $availablea - $amt;
+	
+	$query = "UPDATE productinfo
+                SET  QuantityAvail = :subtracted
+			WHERE ProductName = :product";
+	$statement = $db->prepare($query);
+	$statement->bindValue(':subtracted', $subtracted);
+	$statement->bindValue(':product', $productordered[$i]);
+	$statement->execute();
+	$statement->closeCursor();
+	
+	$i++;
+	
 }
 
 ?>
