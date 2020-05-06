@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2020 at 05:15 AM
+-- Generation Time: May 06, 2020 at 05:16 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.1.27
 
@@ -29,11 +29,19 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `orderinfo` (
-  `OrderNum` char(8) NOT NULL,
+  `OrderNum` char(13) NOT NULL,
   `TotalPrice` decimal(10,2) NOT NULL,
   `Address` char(30) NOT NULL,
+  `Address2` char(30) NOT NULL,
   `CustName` char(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `orderinfo`
+--
+
+INSERT INTO `orderinfo` (`OrderNum`, `TotalPrice`, `Address`, `Address2`, `CustName`) VALUES
+('5eb22bb3018d8', '939.90', '724 5th Ave SE', 'Dyersville IA, 52040', 'Timothy');
 
 -- --------------------------------------------------------
 
@@ -43,9 +51,17 @@ CREATE TABLE `orderinfo` (
 
 CREATE TABLE `orderline` (
   `ProductNum` char(8) NOT NULL,
-  `OrderNum` char(8) NOT NULL,
+  `OrderNum` char(13) NOT NULL,
   `AmtOrdered` int(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `orderline`
+--
+
+INSERT INTO `orderline` (`ProductNum`, `OrderNum`, `AmtOrdered`) VALUES
+('SE000610', '5eb22bb3018d8', 6),
+('SE0326M1', '5eb22bb3018d8', 4);
 
 -- --------------------------------------------------------
 
@@ -66,14 +82,14 @@ CREATE TABLE `productinfo` (
 --
 
 INSERT INTO `productinfo` (`ProductName`, `ProductNum`, `QuantityAvail`, `Price`, `ProductType`) VALUES
-('Dell R610', 'SE000610', 253, '79.99', 'server'),
-('Dell R620', 'SE000620', 561, '139.99', 'server'),
-('Dell R630', 'SE000630', 456, '229.99', 'server'),
-('Dell R710', 'SE000710', 316, '119.99', 'server'),
+('Dell R610', 'SE000610', 390, '79.99', 'server'),
+('Dell R620', 'SE000620', 558, '139.99', 'server'),
+('Dell R630', 'SE000630', 408, '229.99', 'server'),
+('Dell R710', 'SE000710', 1000, '119.99', 'server'),
 ('Dell R720', 'SE000720', 651, '299.99', 'server'),
 ('Dell R730', 'SE000730', 463, '939.99', 'server'),
-('HP Proliant DL360p G8', 'SE00360P', 345, '139.99', 'server'),
-('HP Proliant SE326M1 DL180', 'SE0326M1', 386, '114.99', 'server');
+('HP Proliant DL360p G8', 'SE00360P', 327, '139.99', 'server'),
+('HP Proliant SE326M1 DL180', 'SE0326M1', 330, '114.99', 'server');
 
 --
 -- Indexes for dumped tables
