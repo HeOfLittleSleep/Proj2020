@@ -19,7 +19,7 @@ function add_item($key, $quantity) {
         'Price' => $Price,
         'qty'  => $quantity,
         'total' => $total,
-		'ProductNum' => $products[$key]['ProductNum']
+		'ProductNum' => $products[$key]['roductNum']
 		
     );
     $_SESSION['cart'][$key] = $item;
@@ -47,9 +47,9 @@ function get_subtotal() {
     foreach ($_SESSION['cart'] as $item) {
         $subtotal += $item['total'];
     }
-    $subtotal = number_format($subtotal, 2);
+    //$subtotal = number_format($subtotal, 2);
     
-	$_SESSION["DBsubtotal"] = $subtotal;
+	$_SESSION["DBsubtotal"] = number_format($subtotal,2,".","");
 	
 	return $subtotal;
 }

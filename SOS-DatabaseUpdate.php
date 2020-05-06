@@ -13,12 +13,6 @@ $ordernumber = uniqid();
 
 foreach ($_SESSION['cart'] as $item) 
 {
-	// add quantity and product number to respective arrays
-	// $quantityordered=array();
-	// $productordered=array();
-	
-	// array_push($quantityordered, $item['qty']);
-	// array_push($productordered, $item['ProductNum']);
 	
 	// add record to the orderline table
 	$query = "INSERT INTO orderline
@@ -59,23 +53,6 @@ $statement->closeCursor();
 // reduce QuantityAvail by AmtOrdered for each respective product
 
 
-/* foreach ($quantityordered as $amt) 
-{	
-	//echo $amt;
-
-	$query = "UPDATE productinfo
-                SET  QuantityAvail = QuantityAvail - :amt
-			WHERE ProductNum = :product";
-	$statement = $db->prepare($query);
-	$statement->bindValue(':amt', $amt);
-	$statement->bindValue(':product', $productordered[$i]);
-	$statement->execute();
-	$statement->closeCursor();
-	
-	$i++;
-}
-print_r($quantityordered); */
-
 ?>
 
 
@@ -111,21 +88,6 @@ print_r($quantityordered); */
 		</header>
 		<article>
 			<p>your order has been processed. Thank you for shopping with us!<p/>
-			<?php echo $_SESSION['DBsubtotal']; ?><br />
-			<?php echo $custname; ?>
-			<?php echo $ordernumber; ?>
-			<?php foreach ($_SESSION['cart'] as $item) 
-			{
-				echo $item['qty'];
-				echo "<br />";
-				echo $item['ProductNum'];
-				echo "<br />";
-			} 
-			if (empty($_SESSION['cart'])) : ?>
-                <p>F U C K</p>
-			<?php endif; ?>
-
-			
 		</article>
 		<footer>
 			Stacks O' Servers Llc &#8226; 578 Rocket Drive, Minneapolis MN &nbsp; 55402 &#8226; 612-873-0050 &#8226; pottert140065@nicc.edu
