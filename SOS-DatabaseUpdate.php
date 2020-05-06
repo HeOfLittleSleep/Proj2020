@@ -16,8 +16,8 @@ foreach ($_SESSION['cart'] as $item)
 	$quantityordered=array();
 	$productordered=array();
 	
-	$quantityordered[] = $item['qty'];
-	$productordered[]= $item['ProductNum'];
+	array_push($quantityordered, $item['qty']);
+	array_push($productordered, $item['ProductNum']);
 	
 	// add record to the orderline table
 	$query = "INSERT INTO orderline
@@ -49,7 +49,7 @@ $statement->closeCursor();
 $i = 0;
 foreach ($quantityordered as $amt) 
 {	
-	echo $amt;
+	//echo $amt;
 
 	$query = "UPDATE productinfo
                 SET  QuantityAvail = QuantityAvail - :amt
@@ -61,8 +61,8 @@ foreach ($quantityordered as $amt)
 	$statement->closeCursor();
 	
 	$i++;
-	
 }
+print_r($quantityordered);
 
 ?>
 
