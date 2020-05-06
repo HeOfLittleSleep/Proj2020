@@ -18,7 +18,7 @@ require_once('database.php');
 
 // Set product ID
 
- $ProdductNum = 1;
+ $ProductNum = 1;
 
 // Get all product
 $query = "SELECT * FROM productinfo";

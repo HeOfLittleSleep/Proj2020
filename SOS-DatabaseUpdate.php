@@ -45,22 +45,17 @@ $statement->execute();
 $statement->closeCursor();
 
 // reduce QuantityAvail by AmtOrdered for each respective product
+
 $i = 0;
 foreach ($quantityordered as $amt) 
-{
-	$query = "SELECT QuantutyAvail FROM productinfo
-			WHERE ProductName = ".$productordered[$i];
-	$available = $db->query($query);
-	$availablea = $available->execute();
-	
-	echo $available;
-	$subtracted = $availablea - $amt;
-	
+{	
+	echo $amt;
+
 	$query = "UPDATE productinfo
-                SET  QuantityAvail = :subtracted
-			WHERE ProductName = :product";
+                SET  QuantityAvail = QuantityAvail - :amt
+			WHERE ProductNum = :product";
 	$statement = $db->prepare($query);
-	$statement->bindValue(':subtracted', $subtracted);
+	$statement->bindValue(':amt', $amt);
 	$statement->bindValue(':product', $productordered[$i]);
 	$statement->execute();
 	$statement->closeCursor();
