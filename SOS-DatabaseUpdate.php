@@ -10,14 +10,15 @@ $custaddress2 = $_POST['custaddress2'];
 $ordernumber = uniqid();
 
 // gets required data from session and updates orderline
+
 foreach ($_SESSION['cart'] as $item) 
 {
 	// add quantity and product number to respective arrays
-	$quantityordered=array();
-	$productordered=array();
+	// $quantityordered=array();
+	// $productordered=array();
 	
-	array_push($quantityordered, $item['qty']);
-	array_push($productordered, $item['ProductNum']);
+	// array_push($quantityordered, $item['qty']);
+	// array_push($productordered, $item['ProductNum']);
 	
 	// add record to the orderline table
 	$query = "INSERT INTO orderline
@@ -29,6 +30,17 @@ foreach ($_SESSION['cart'] as $item)
 	$statement->bindValue(':ProductNum', $item['ProductNum']);
 	$statement->execute();
 	$statement->closeCursor();
+	
+	// reduce QuantityAvail by AmtOrdered for each respective product
+	$query = "UPDATE productinfo
+                SET  QuantityAvail = QuantityAvail - :amt
+			WHERE ProductNum = :ProductNumber";
+	$statement = $db->prepare($query);
+	$statement->bindValue(':amt', $item['qty']);
+	$statement->bindValue(':ProductNumber', $item['ProductNum']);
+	$statement->execute();
+	$statement->closeCursor();
+	
 }
 
 // add record of order to orderinfo table
@@ -46,8 +58,8 @@ $statement->closeCursor();
 
 // reduce QuantityAvail by AmtOrdered for each respective product
 
-$i = 0;
-foreach ($quantityordered as $amt) 
+
+/* foreach ($quantityordered as $amt) 
 {	
 	//echo $amt;
 
@@ -62,7 +74,7 @@ foreach ($quantityordered as $amt)
 	
 	$i++;
 }
-print_r($quantityordered);
+print_r($quantityordered); */
 
 ?>
 
